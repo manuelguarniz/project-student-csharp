@@ -1,0 +1,15 @@
+﻿@model IEnumerable<CapaEntidades.entProducto>
+@{
+    ViewBag.Title = "ListaProductos";
+    Layout = "~/Views/MaestraVentas.cshtml";
+}
+
+<h2>ListaProductos</h2>
+<ul>
+    @{
+        foreach (var m in Model)
+        {
+            <li>@Html.DisplayFor(modelItem => m.Descripcion)</li>
+        }
+    }
+</ul>

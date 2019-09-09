@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Estilos/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header"></div>
+    <div id="wrapper">
+        <div id="menu">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Carrito</a></li>
+                <li><a href="#">Reportes</a></li>
+                <li><a href="#">Intranet</a></li>
+            </ul>
+        </div>
+        <div id="search">
+            <input type="text" id="search-text"/>
+        </div>
+    </div>
+    <div id="page">
+        <div id="sidebar">
+            <h3>Lista de Marcas</h3>
+            <ul>
+                @foreach (CapaEntidades.entMarca m in CapaLogica.negMarca.Instancia.ListarMarcas())
+                {
+                    <li>@Html.ActionLink(m.Descripcion, "ListaProductos", "Inicio", 
+                                                                new {idmarca=m.idMarca}, null)</li>
+                }
+            </ul>
+        </div>
+        <div id="content">
+            @RenderBody()
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    <div id="footer-menu">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Carrito</a></li>
+            <li><a href="#">Reportes</a></li>
+            <li><a href="#">Intranet</a></li>
+        </ul>
+    </div>
+    <div id="footer">
+        <p>ITN - CIBERTEC  Pruebas de Software</p>
+    </div>
+</body>
+</html>
